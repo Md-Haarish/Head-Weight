@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEAD-WEIGHT | Premium Helmets & Ride Tech</title>
+ 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+ 
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+ 
+  <!-- CART OVERLAY & DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <h3>Your Gear Bag</h3>
+      <button class="cart-close" onclick="toggleCart()">&#x2715;</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <span class="cart-empty-icon">&#x1F6D2;</span>
+        <p>Your bag is empty.<br>Add some gear!</p>
+      </div>
+    </div>
+    <div class="cart-foot" id="cartFoot" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">&#x20B9;0</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout &#x2192;</button>
+    </div>
+  </div>
+ 
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">&#x2713;</span>
+    <span id="toastMsg"></span>
+  </div>
+ 
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="logo">HEAD<span>-</span>WEIGHT</a>
+    <ul class="nav-links">
+      <li><a href="#products">Helmets</a></li>
+      <li><a href="#accessories">Accessories</a></li>
+      <li><a href="#tech">Tech</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-icon" title="Search">&#x1F50D;</button>
+      <button class="nav-icon" onclick="toggleCart()" title="Cart">
+        &#x1F6D2;
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="btn-nav">Explore</button>
+    </div>
+  </nav>
+ 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-tag">&#x1F3CD;&#xFE0F; New 2025 Collection</div>
+      <h1>
+        RIDE<br>
+        <span class="line2">SMARTER,</span>
+        <span class="accent-word">SAFER.</span>
+      </h1>
+      <p class="hero-sub">
+        Premium helmets engineered for speed, safety, and seamless connectivity.
+        Bluetooth-integrated, GPS-ready, and built for the modern rider.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary"
+          onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+          Shop Collection
+        </button>
+        <button class="btn-outline"
+          onclick="document.getElementById('tech').scrollIntoView({behavior:'smooth'})">
+          Explore Tech &#x2192;
+        </button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="helmet-showcase">
+        <div class="helmet-circle">
+          <span class="helmet-emoji">&#x1FA96;</span>
+        </div>
+        <div class="hero-badge badge1"><span class="badge-dot"></span>Bluetooth 5.3 Inbuilt</div>
+        <div class="hero-badge badge2"><span class="badge-dot"></span>DOT &amp; ECE Certified</div>
+        <div class="hero-badge badge3"><span class="badge-dot"></span>GPS Navigation Ready</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">50K+</div><div class="stat-label">Riders Trust Us</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Safety Rating</div></div>
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Models Available</div></div>
+      <div class="stat"><div class="stat-num">5&#x2605;</div><div class="stat-label">Average Review</div></div>
+    </div>
+  </section>
+ 
+  <!-- MARQUEE TICKER -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="marquee-item">&#x1F3CD;&#xFE0F; FREE SHIPPING ABOVE &#x20B9;2499 <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x26A1; BLUETOOTH HELMETS NOW IN STOCK <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x1F3AF; GPS NAV HOLDERS FROM &#x20B9;499 <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x1F6E1;&#xFE0F; DOT &amp; ECE CERTIFIED HELMETS <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x1F525; MONSOON SALE &mdash; UP TO 35% OFF <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x1F3CD;&#xFE0F; FREE SHIPPING ABOVE &#x20B9;2499 <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x26A1; BLUETOOTH HELMETS NOW IN STOCK <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x1F3AF; GPS NAV HOLDERS FROM &#x20B9;499 <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x1F6E1;&#xFE0F; DOT &amp; ECE CERTIFIED HELMETS <span class="marquee-sep">|</span></span>
+      <span class="marquee-item">&#x1F525; MONSOON SALE &mdash; UP TO 35% OFF <span class="marquee-sep">|</span></span>
+    </div>
+  </div>
+ 
+  <!-- CATEGORIES -->
+  <section>
+    <p class="section-label reveal">Shop by Category</p>
+    <h2 class="section-title reveal">GEAR UP<br>YOUR RIDE</h2>
+    <p class="section-sub reveal">Every category designed for performance, safety, and style.</p>
+    <div class="categories-grid">
+      <div class="cat-card reveal" onclick="filterProducts('Full Face')">
+        <span class="cat-icon">&#x26D1;&#xFE0F;</span>
+        <div class="cat-name">Full Face</div>
+        <div class="cat-desc">Maximum protection with integrated visor and chin guard.</div>
+        <div class="cat-arrow">&#x2192;</div>
+      </div>
+      <div class="cat-card reveal" onclick="filterProducts('Half Face')">
+        <span class="cat-icon">&#x1FA96;</span>
+        <div class="cat-name">Half Face</div>
+        <div class="cat-desc">Open-face freedom with solid skull protection.</div>
+        <div class="cat-arrow">&#x2192;</div>
+      </div>
+      <div class="cat-card reveal" onclick="filterProducts('Smart')">
+        <span class="cat-icon">&#x1F4E1;</span>
+        <div class="cat-name">Smart Series</div>
+        <div class="cat-desc">Bluetooth, GPS, and HUD &mdash; the connected rider&apos;s helmet.</div>
+        <div class="cat-arrow">&#x2192;</div>
+      </div>
+      <div class="cat-card reveal" onclick="filterProducts('Accessories')">
+        <span class="cat-icon">&#x1F527;</span>
+        <div class="cat-name">Accessories</div>
+        <div class="cat-desc">Mounts, visors, pads, and more to upgrade your ride.</div>
+        <div class="cat-arrow">&#x2192;</div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- PRODUCTS -->
+  <section id="products" style="background: var(--deep);">
+    <div class="products-header">
+      <div>
+        <p class="section-label">Best Sellers</p>
+        <h2 class="section-title" style="margin-bottom:0">FEATURED<br>HELMETS</h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="setFilter(this,'all')">All</button>
+        <button class="filter-tab" onclick="setFilter(this,'Full Face')">Full Face</button>
+        <button class="filter-tab" onclick="setFilter(this,'Half Face')">Half Face</button>
+        <button class="filter-tab" onclick="setFilter(this,'Smart')">Smart</button>
+      </div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+ 
+  <!-- FEATURE STRIP -->
+  <div class="features-strip">
+    <div class="feature-item reveal">
+      <div class="feature-icon-wrap">&#x1F69A;</div>
+      <div>
+        <div class="feature-text-title">Free Shipping</div>
+        <div class="feature-text-desc">Orders above &#x20B9;2499 ship free across India.</div>
+      </div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon-wrap">&#x1F504;</div>
+      <div>
+        <div class="feature-text-title">Easy Returns</div>
+        <div class="feature-text-desc">30-day hassle-free return &amp; exchange policy.</div>
+      </div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon-wrap">&#x1F6E1;&#xFE0F;</div>
+      <div>
+        <div class="feature-text-title">Certified Safe</div>
+        <div class="feature-text-desc">Every helmet DOT &amp; ECE 22.06 certified.</div>
+      </div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon-wrap">&#x1F3A7;</div>
+      <div>
+        <div class="feature-text-title">24/7 Support</div>
+        <div class="feature-text-desc">Rider support available around the clock.</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- TECH SPOTLIGHT -->
+  <section id="tech" style="padding:0">
+    <div class="tech-spotlight">
+      <div class="tech-visual">
+        <div class="tech-ring ring1"></div>
+        <div class="tech-ring ring2"></div>
+        <div class="tech-helmet">&#x26D1;&#xFE0F;</div>
+      </div>
+      <div class="tech-content">
+        <p class="section-label">Technology</p>
+        <h2 class="section-title">SMART HELMET<br>X1 PRO</h2>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;max-width:420px">
+          The X1 Pro integrates cutting-edge connectivity into a DOT-certified full-face shell.
+          No add-ons, no dongles &mdash; just ride.
+        </p>
+        <div class="tech-spec-grid">
+          <div class="spec-item"><div class="spec-icon">&#x1F4F6;</div><div class="spec-name">Connectivity</div><div class="spec-val">Bluetooth 5.3</div></div>
+          <div class="spec-item"><div class="spec-icon">&#x1F50B;</div><div class="spec-name">Battery Life</div><div class="spec-val">18 Hrs</div></div>
+          <div class="spec-item"><div class="spec-icon">&#x1F5E3;&#xFE0F;</div><div class="spec-name">Voice Control</div><div class="spec-val">AI Enabled</div></div>
+          <div class="spec-item"><div class="spec-icon">&#x1F5FA;&#xFE0F;</div><div class="spec-name">Navigation</div><div class="spec-val">Turn-by-Turn</div></div>
+          <div class="spec-item"><div class="spec-icon">&#x1F327;&#xFE0F;</div><div class="spec-name">Weather Rating</div><div class="spec-val">IP67 Sealed</div></div>
+          <div class="spec-item"><div class="spec-icon">&#x2696;&#xFE0F;</div><div class="spec-name">Shell Weight</div><div class="spec-val">1.18 kg</div></div>
+        </div>
+        <button class="btn-primary" style="margin-top:32px"
+          onclick="addToCart({name:'X1 Pro Smart Helmet',price:8999,emoji:'&#x26D1;&#xFE0F;'})">
+          Add to Cart &mdash; &#x20B9;8,999
+        </button>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ACCESSORIES -->
+  <section id="accessories">
+    <p class="section-label reveal">Ride Upgrades</p>
+    <h2 class="section-title reveal">ACCESSORIES<br>&amp; ADD-ONS</h2>
+    <p class="section-sub reveal">Complete your setup with mounts, communicators, and protection.</p>
+    <div class="accessories-grid" id="accessoriesGrid"></div>
+  </section>
+ 
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="about">
+    <p class="section-label reveal">Reviews</p>
+    <h2 class="section-title reveal">RIDERS<br>LOVE IT</h2>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
+        <p class="testi-quote">"The Bluetooth quality inside my X1 Pro is insane &mdash; crisp calls at 100kmph with zero wind noise. Best helmet purchase I&apos;ve made."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div><div class="testi-name">Raj Kumar</div><div class="testi-role">Daily Commuter, Chennai</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
+        <p class="testi-quote">"Got the GPS mount and the handlebar phone holder together. Installation was 5 mins and the quality is genuinely premium. Zero wobble at highway speeds."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PV</div>
+          <div><div class="testi-name">Priya Venkat</div><div class="testi-role">Weekend Tourer, Bangalore</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</div>
+        <p class="testi-quote">"Head-Weight&apos;s dual-sport helmet is unreal value. Same certification as helmets 3x the price. Shipping was fast too &mdash; delivered in 2 days to Coimbatore."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div><div class="testi-name">Suresh K</div><div class="testi-role">Track Rider, Coimbatore</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <p class="section-label">Stay Connected</p>
+    <h2 class="section-title">GET EARLY ACCESS<br>&amp; EXCLUSIVE DEALS</h2>
+    <p style="color:var(--muted);font-size:0.9rem;max-width:420px;margin:0 auto">
+      Drop your email and be the first to know about new drops, flash sales, and rider events.
+    </p>
+    <div class="newsletter-form">
+      <input class="newsletter-input" type="email" placeholder="your@email.com" id="emailInput">
+      <button class="newsletter-btn" onclick="subscribe()">Subscribe</button>
+    </div>
+  </div>
+ 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.18em">
+          HEAD<span style="color:var(--accent)">-</span>WEIGHT
+        </div>
+        <p>Premium helmets and ride accessories built for the Indian roads. Certified. Connected. Uncompromising.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" title="Instagram">&#x1F4F8;</a>
+          <a href="#" class="social-btn" title="YouTube">&#x25B6;&#xFE0F;</a>
+          <a href="#" class="social-btn" title="Facebook">&#x1F44D;</a>
+          <a href="#" class="social-btn" title="Twitter">&#x1F426;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Full Face Helmets</a></li>
+          <li><a href="#">Half Face Helmets</a></li>
+          <li><a href="#">Smart Helmets</a></li>
+          <li><a href="#">Kids Helmets</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">New Arrivals</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns &amp; Exchange</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Dealer Program</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Head-Weight. All rights reserved. Made with &#x2764;&#xFE0F; for Indian riders.</p>
+      <p>Accepting: &#x1F4B3; Cards &nbsp;|&nbsp; &#x1F4F1; UPI &nbsp;|&nbsp; &#x1F3E6; Net Banking &nbsp;|&nbsp; &#x1F4B0; COD</p>
+    </div>
+  </footer>
+ 
+  <!-- JavaScript loaded last for best performance -->
+  <script src="script.js"></script>
+ 
+</body>
+</html>
