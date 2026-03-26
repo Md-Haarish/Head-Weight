@@ -265,9 +265,23 @@ function observeReveal() {
 }
  
 /* ── INIT ───────────────────────────────────────────────────── */
+
 document.addEventListener('DOMContentLoaded', () => {
-  renderProducts('all');
-  renderAccessories();
+
+  if (document.getElementById('productsGrid')) {
+    renderProducts('all');
+  }
+
+  if (document.getElementById('accessoriesGrid')) {
+    renderAccessories();
+  }
+
   observeReveal();
   attachCursorHover();
 });
+
+
+
+function goHome() {
+  window.location.href = "index.html";
+}
