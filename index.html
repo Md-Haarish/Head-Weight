@@ -47,20 +47,23 @@
  
   <!-- NAVIGATION -->
   <nav>
-    <a href="#" class="logo">HEAD<span>-</span>WEIGHT</a>
-    <ul class="nav-links">
-      <li><a href="#products">Helmets</a></li>
-      <li><a href="#accessories">Accessories</a></li>
-      <li><a href="#tech">Tech</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
+    <a href="index.html" class="logo">HEAD<span>-</span>WEIGHT</a>
+
+<ul class="nav-links">
+  <li><a href="helmets.html">Helmets</a></li>
+  <li><a href="accessories.html">Accessories</a></li>
+  <li><a href="tech.html">Tech</a></li>
+  <li><a href="about.html">About</a></li>
+</ul>
     <div class="nav-right">
       <button class="nav-icon" title="Search">&#x1F50D;</button>
       <button class="nav-icon" onclick="toggleCart()" title="Cart">
         &#x1F6D2;
         <span class="cart-count" id="cartCount">0</span>
       </button>
-      <button class="btn-nav">Explore</button>
+      <a href="accessories.html" class="btn-nav">
+  Explore
+</a>
     </div>
   </nav>
  
@@ -79,16 +82,7 @@
         Premium helmets engineered for speed, safety, and seamless connectivity.
         Bluetooth-integrated, GPS-ready, and built for the modern rider.
       </p>
-      <div class="hero-ctas">
-        <button class="btn-primary"
-          onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-          Shop Collection
-        </button>
-        <button class="btn-outline"
-          onclick="document.getElementById('tech').scrollIntoView({behavior:'smooth'})">
-          Explore Tech &#x2192;
-        </button>
-      </div>
+      
     </div>
     <div class="hero-visual">
       <div class="helmet-showcase">
